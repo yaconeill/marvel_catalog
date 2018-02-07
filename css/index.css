@@ -1,0 +1,122 @@
+.charactersCatalog,
+.comicsCatalog {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -ms-flex-pack: distribute;
+  justify-content: space-around; }
+
+body {
+  font-size: 1rem;
+  background-attachment: fixed; }
+
+.morecontent span {
+  display: none; }
+
+.morelink {
+  display: block; }
+
+.filter-panel {
+  margin: 0 auto; }
+  .filter-panel .form-group {
+    margin: 0 15px; }
+
+#myTabContent {
+  padding-top: 20px; }
+
+#loader .modal-content {
+  background-color: transparent;
+  border: transparent; }
+
+#loader .modal-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+
+#loader img {
+  width: 20%; }
+
+.modal {
+  text-align: center;
+  background-color: #000000;
+  opacity: 0.5 !important;
+  padding: 0 !important; }
+
+.modal:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -4px; }
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle; }
+
+.film {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column wrap;
+  flex-flow: column wrap;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 5px; }
+  .film input {
+    margin-top: 5px; }
+
+.card {
+  max-width: 300px; }
+  .card img {
+    width: 100%; }
+
+#pagination-1,
+#pagination-2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
+
+.light-theme .current {
+  background-color: #d9230f !important;
+  border-color: #d4220f !important; }
+
+.page-link:hover {
+  color: #d9230f !important; }
+
+.charactersCatalog,
+.comicsCatalog {
+  cursor: pointer; }
+  .charactersCatalog .card:hover,
+  .comicsCatalog .card:hover {
+    -webkit-box-shadow: 5px 3px 8px #888888;
+    box-shadow: 5px 3px 8px #888888;
+    -webkit-transition: .5s;
+    -o-transition: .5s;
+    transition: .5s;
+    -webkit-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+    transform: scale(1.02); }
+
+#graphic {
+  width: 100%;
+  min-height: 450px; }
+
+#donutIcon {
+  height: 20px; }

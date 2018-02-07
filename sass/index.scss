@@ -1,0 +1,114 @@
+.charactersCatalog,
+.comicsCatalog {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+body {
+    font-size: 1rem;
+    background-attachment: fixed;
+}
+.morecontent span {
+    display: none;
+}
+.morelink {
+    display: block;
+}
+
+.filter-panel {
+    margin: 0 auto;
+    .form-group {
+        margin: 0 15px;
+    }
+}
+
+#myTabContent {
+    padding-top: 20px;
+}
+
+#loader {
+    .modal-content {
+        background-color: transparent;
+        border: transparent;
+    }
+    .modal-body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    img {
+        width: 20%;
+    }
+}
+
+.modal {
+    text-align: center;
+    background-color: #000000;
+    opacity:0.5 !important;
+    padding: 0!important;
+}
+
+.modal:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -4px;
+}
+
+.modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.film {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    padding: 5px;
+    & input {
+        margin-top: 5px;
+    }
+}
+
+.card {
+    max-width: 300px;
+    img {
+        width: 100%; //     
+    }
+}
+#pagination-1,
+#pagination-2{
+    display: flex;
+    justify-content: center;
+}
+
+.light-theme .current{
+    background-color: #d9230f !important;
+    border-color: #d4220f !important;
+}
+
+.page-link:hover{
+    color: #d9230f !important;
+}
+
+.charactersCatalog,
+.comicsCatalog {
+    cursor: pointer;
+    .card:hover {
+        box-shadow: 5px 3px 8px#888888;
+        transition: .5s;
+        transform: scale(1.02);
+    }
+}
+
+#graphic {
+    width: 100%;
+    min-height: 450px;
+}
+
+#donutIcon {
+    height: 20px;
+}

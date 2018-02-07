@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rating</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" title="Ir a inicio" href="../index.html" aria-label="Página de detalles de la película">Rating</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="../index.html">Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="results.html">Chart results</a>
+                </li>
+            </ul>
+
+            <div class="form-inline my-2 user my-lg-0">
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="jumbotron">
+            <h1 role="heading" aria-level="1" class="display-3 title"></h1>
+            <hr class="my-4">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div id="movieDetails" tabindex=0 role="heading" aria-level="2" >
+                    </div>
+                </div>
+                <div class="col-lg-8" aria-level="3" tabindex="0">
+                    <h2>Description</h2>  
+                    <p class="sinopsis"></p>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div id="section">
+                <div class="row">
+                    <div class="col-md-9 mx-auto"  tabindex=0 role="heading">
+                        <h2>To vote fill out the form for a chance to Win Two Movie Tickets!</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5 mx-auto" aria-label="En el siguiente formulario todos los datos son obligatorios">
+                        <form id="register">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" autocomplete='name' id="name" aria-label="Escribir nombre" aria-required="true">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Telephone</label>
+                                <input type="tel" class="form-control" autocomplete='tel-national' maxlength="9" pattern="[0-9]{9}" id="phone" aria-label="Escribir número de teléfono" aria-required="true">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" autocomplete='email' id="email" aria-label="Escribir correo electrónico" aria-required="true">
+                            </div>
+                            <button type="submit" class="btn btn-primary" aria-label="Botón para registrar los datos y entrar en el sorteo">Enviar datos</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="../js/data.js"></script>
+    <script src="../js/background.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/details.js"></script>
+</body>
+
+</html>
