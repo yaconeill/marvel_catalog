@@ -229,8 +229,8 @@ $(document).ready(function () {
 
     var showChar = 20;  // How many characters are shown by default
     var ellipsestext = "...";
-    var moretext = "Read more";
-    var lesstext = "Read less";
+    var moretext = "Show more";
+    var lesstext = "Show less";
 
 
     $('.more').each(function () {
