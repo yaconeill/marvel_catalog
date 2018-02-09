@@ -1,3 +1,24 @@
+.logo img {
+  height: 35px;
+  margin-right: 15px; }
+
+.badge,
+.navbar.navbar-dark .breadcrumb .nav-item.active > .nav-link:hover,
+.navbar.navbar-dark .navbar-nav .nav-item.active > .nav-link:hover,
+.navbar.navbar-dark .navbar-toggler,
+.navbar.navbar-dark form .form-control,
+.pagination .active .page-link:hover {
+  color: black; }
+
+#pref-orderby {
+  margin-top: 15px; }
+
+#red-logo {
+  height: 75px; }
+
+.navbar.navbar-dark form .form-control:focus {
+  color: black !important; }
+
 .charactersCatalog,
 .comicsCatalog {
   display: -webkit-box;
@@ -46,20 +67,20 @@ body {
 #loader img {
   width: 20%; }
 
-.modal {
+#modalLoader .modal {
   text-align: center;
   background-color: #000000;
   opacity: 0.5 !important;
   padding: 0 !important; }
 
-.modal:before {
+#modalLoader .modal:before {
   content: '';
   display: inline-block;
   height: 100%;
   vertical-align: middle;
   margin-right: -4px; }
 
-.modal-dialog {
+#modalLoader .modal-dialog {
   display: inline-block;
   text-align: left;
   vertical-align: middle; }
@@ -80,12 +101,13 @@ body {
     margin-top: 5px; }
 
 .card {
-  max-width: 300px; }
-  .card img {
-    width: 100%; }
+  width: 18rem;
+  margin: 15px auto; }
+  .card p {
+    padding: 15px; }
 
-#pagination-1,
-#pagination-2 {
+.pagination-1,
+.pagination-2 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -100,19 +122,20 @@ body {
 .page-link:hover {
   color: #d9230f !important; }
 
-.charactersCatalog,
-.comicsCatalog {
-  cursor: pointer; }
-  .charactersCatalog .card:hover,
-  .comicsCatalog .card:hover {
-    -webkit-box-shadow: 5px 3px 8px #888888;
-    box-shadow: 5px 3px 8px #888888;
-    -webkit-transition: .5s;
-    -o-transition: .5s;
-    transition: .5s;
-    -webkit-transform: scale(1.02);
-    -ms-transform: scale(1.02);
-    transform: scale(1.02); }
+.charactersCatalog .card:hover,
+.comicsCatalog .card:hover {
+  -webkit-box-shadow: 5px 3px 8px #888888;
+  box-shadow: 5px 3px 8px #888888;
+  -webkit-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s;
+  -webkit-transform: scale(1.02);
+  -ms-transform: scale(1.02);
+  transform: scale(1.02); }
+
+.charactersCatalog .card-block button,
+.comicsCatalog .card-block button {
+  margin-left: 35%; }
 
 #graphic {
   width: 100%;
@@ -120,3 +143,55 @@ body {
 
 #donutIcon {
   height: 20px; }
+
+#details img {
+  width: 18rem; }
+
+#details .modal-body h5 {
+  margin-left: 20%; }
+
+.footer {
+  position: fixed;
+  font-size: 1.8vmin;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #d9230f;
+  color: white;
+  text-align: center;
+  padding: 10px; }
+  .footer a {
+    color: white !important; }
+    .footer a:visited, .footer a:link, .footer a:hover, .footer aactive {
+      color: white !important; }
+
+#return-to-top {
+  position: fixed;
+  bottom: 60px;
+  right: 20px;
+  background: #d9230f;
+  background: rgba(217, 35, 15, 0.7);
+  width: 50px;
+  height: 50px;
+  display: block;
+  text-decoration: none;
+  border-radius: 35px;
+  display: none;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease; }
+  #return-to-top i {
+    color: #fff;
+    margin: 0;
+    position: relative;
+    left: 16px;
+    top: 13px;
+    font-size: 19px;
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease; }
+  #return-to-top:hover {
+    background: rgba(217, 35, 15, 0.9); }
+  #return-to-top:hover i {
+    color: #fff;
+    top: 5px; }

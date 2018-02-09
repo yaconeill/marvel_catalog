@@ -6,6 +6,9 @@ $(document).ready(function () {
     var catalog = JSON.parse(localStorage.getItem('characters'));
     var dataGraphic;
     var type = 'characters';
+    /**
+     * Change the type of selection
+     */
     var $typeSwitch = $('#type');
     $typeSwitch.change(function () {
         if ($typeSwitch.prop('checked'))
@@ -19,7 +22,7 @@ $(document).ready(function () {
     });
     loadData();
 
-    // #region - gráfico donut
+    // #region - Donut chart
     $('#donut').change(function () {
         drawChartDonut();
     });
@@ -28,7 +31,7 @@ $(document).ready(function () {
     function drawChartDonut() {
         var data = google.visualization.arrayToDataTable(dataGraphic);
         var options = {
-            title: 'Películas mejor valoradas',
+            title: 'Best Rated',
             pieHole: 0.4,
         };
         var chart = new google.visualization.PieChart(document.getElementById('graphic'));
@@ -45,7 +48,7 @@ $(document).ready(function () {
     function drawChart() {
         var data = google.visualization.arrayToDataTable(dataGraphic);
         var options = {
-            title: 'Películas mejor valoradas',
+            title: 'Best Rated',
             curveType: 'function',
             legend: { position: 'bottom' }
         };
@@ -63,7 +66,7 @@ $(document).ready(function () {
     function drawChartPie() {
         var data = google.visualization.arrayToDataTable(dataGraphic);
         var options = {
-            title: 'Películas mejor valoradas',
+            title: 'Best Rated',
             is3D: true,
         };
         var chart = new google.visualization.PieChart(document.getElementById('graphic'));
@@ -75,8 +78,12 @@ $(document).ready(function () {
         localStorage.removeItem('currentUser');
         location.reload();
     });
+    
+    /** 
+     * Reads the info from the voting result
+    */
     function loadData() {
-        dataGraphic = [['Rate', 'Personajes mejor valorados']];
+        dataGraphic = [['Rate', 'Best Rated']];
         ratingData.forEach(function (e) {
             if (e.type === type)
                 dataGraphic.push([e.name, e.rate]);

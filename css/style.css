@@ -1,5 +1,10 @@
 body {
-  font-size: 1rem; }
+  font-size: 1rem;
+  background-attachment: fixed; }
+
+.logo img {
+  height: 35px;
+  margin-right: 15px; }
 
 .film {
   display: -webkit-box;
@@ -12,5 +17,20 @@ body {
   -ms-flex-align: center;
   align-items: center; }
 
-img {
+.film img {
   width: 100%; }
+
+.footer {
+  position: fixed;
+  font-size: 1.8vmin;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #d9230f;
+  color: white;
+  text-align: center;
+  padding: 10px; }
+  .footer a {
+    color: white !important; }
+    .footer a:visited, .footer a:link, .footer a:hover, .footer aactive {
+      color: white !important; }
