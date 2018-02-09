@@ -1,0 +1,7 @@
+{
+    "source": {
+        "include": ["js/index.js", "js/results.js", "js/common.js"],
+        "includePattern": ".+\\.js(doc|x)?$",
+        "excludePattern": "(^|\\/|\\\\)_"
+    }
+}
