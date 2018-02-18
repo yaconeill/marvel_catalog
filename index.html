@@ -111,14 +111,14 @@
     <div class="modal fade" id="details" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Details</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form id="register">
+                <form id="register" action="pages/results.html">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Details</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
                         <div class="form-group">
                             <img class="modal-content" id="">
                         </div>
@@ -140,31 +140,31 @@
                                     <p class="h5 text-center mb-4">To vote fill out the form for a chance to Win Two Movie Tickets!</p>
                                     <div class="md-form">
                                         <i class="fa fa-user prefix grey-text"></i>
-                                        <input type="text" id="orangeForm-name" class="form-control" autocomplete='name' id="name" aria-label="Escribir nombre" aria-required="true">
+                                        <input type="text" id="orangeForm-name" class="form-control" autocomplete='name' id="name" aria-label="Escribir nombre" aria-required="true" required>
                                         <label for="orangeForm-name">Your name</label>
                                     </div>
                                     <div class="md-form">
                                         <i class="fa fa-envelope prefix grey-text"></i>
                                         <input type="text" id="orangeForm-email" class="form-control" autocomplete='email' id="email" aria-label="Escribir correo electrónico"
-                                            aria-required="true">
+                                            aria-required="true" required>
                                         <label for="orangeForm-email">Your email</label>
                                     </div>
                                     <div class="md-form">
                                         <i class="fa fa-lock prefix grey-text"></i>
                                         <input type="tel" id="orangeForm-pass" class="form-control" autocomplete='tel-national' maxlength="9" pattern="[0-9]{9}"
-                                            id="phone" aria-label="Escribir número de teléfono">
+                                            id="phone" aria-label="Escribir número de teléfono" required>
                                         <label for="orangeForm-pass">Your telephone</label>
                                     </div>
                                 </div>
                             </div>
                             <span class="you-vote">You have already voted in this category</span>
-                    </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                            <button type="submit" id="vote" class="btn btn-success">Vote</button>
+                        </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                        <button type="submit" id="vote" class="btn btn-success">Vote</button>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
         <!--Footer-->

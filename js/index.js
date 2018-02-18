@@ -1,11 +1,11 @@
-    /**
-     * Object to save the voting data that will be printed in chart
-     * @param  {String} type - comics|characters
-     * @param  {String} name - comic|character name
-     * @param  {Int} id - id from the item
-     * @param  {Int} rate - amount of votes
-     */
-    $(document).ready(function () {
+/**
+ * Object to save the voting data that will be printed in chart
+ * @param  {String} type - comics|characters
+ * @param  {String} name - comic|character name
+ * @param  {Int} id - id from the item
+ * @param  {Int} rate - amount of votes
+ */
+$(document).ready(function () {
     RatingData = function (type, name, id, rate) {
         this.type = type
         this.name = name;
@@ -38,7 +38,7 @@
     var $typeSwitch = $('#type');
     var $divCharacters = $('.charactersCatalog');
     var $divComics = $('.comicsCatalog');
-    var mode;
+    var mode = 'characters';
     var showChar = 20;  // How many characters are shown by default
     var ellipsesText = "...";
     var moreText = "Show more";
@@ -78,10 +78,8 @@
     var charactersCatalog = JSON.parse(localStorage.getItem('characters'));
     if (comicsCatalog === null || charactersCatalog === null)
         transferData();
-    /**
-     * Load the api data from the lists
-     */
-    loadData();
+    else
+        loadData();
 
     /**
      * It makes the request to the Marvel api
@@ -130,27 +128,24 @@
                     /**
                      * Send the data to be stored
                      */
-                    if (mode === 'comics')
+                    if (json.data.results[0].characters !== undefined)
                         saveData(e, json.data.results, filterTitle);
                     else
                         saveData(e, json.data.results, filterName);
                 },
                 error: function (jqXHR, status, error) { //función error
-                    console.error('Can\'t do because: ' + jqXHR.responseJSON.code + ' , ' + jqXHR.responseJSON.message);
+                    console.error('Error: ' + status);
+                    ajaxError();
                 },
                 complete: function (jqXHR, status) {
                     /**
                      * In case of error shows a text to le the user know there is a problem
                      */
                     if (jqXHR.status === 409) {
-                        $('#loader').hide();
-                        $divCharacters.children().remove();
-                        $divCharacters.append($('<span>There has been a problem with the server. Please try again later.</span>'));
-                        $divComics.children().remove();
-                        $divComics.append($('<span>There has been a problem with the server. Please try again later.</span>'));
+                        ajaxError();
                     }
                     else {
-                        if (count == 1) {
+                        if (count > 1) {
                             printCards(comicsCatalog, 'comics');
                             printCards(charactersCatalog, 'characters');
                             /**
@@ -170,6 +165,13 @@
         });
     }
 
+    function ajaxError() {
+        $('#loader').hide();
+        $divCharacters.children().remove();
+        $divCharacters.append($('<span>There has been a problem with the server. Please try again later.</span>'));
+        $divComics.children().remove();
+        $divComics.append($('<span>There has been a problem with the server. Please try again later.</span>'));
+    }
     /**
      * @param  {Object} e - it contains the type of selection
      * @param  {Object} data - it contains the data received from the api
@@ -469,78 +471,79 @@
         */
         let voted = didYouVoted(userName);
         if (userName !== '' && userName !== null)
-            if (!voted) {
+            if (voted) {
                 youVoted.hide().next().show();
                 btnVote.addClass('disabled');
             } else {
                 youVoted.hide().next().hide();
                 btnVote.removeClass('disabled');
             }
+
+        if (youVoted.is(':hidden'))
+            $('#vote').click(function () {
+                vote();
+            });
     });
 
     /** 
      * It read the form and save the user data in case is a new user
     */
     var $form = $('#register');
-    $('#vote').click(function () {
+
+    $form.submit(function () {
         $userData = $form.find('input');
+        if (userName !== '') {
+            let user = new User($userData[0].value, $userData[2].value, $userData[1].value, '', '');
+            userName = $userData[0].value;
+            userList.push(user);
+            localStorage.setItem('userList', JSON.stringify(userList));
+            localStorage.setItem('currentUser', userName);
+            isLogin();
+        } else
+            userName = localStorage.getItem('currentUser');
+        vote();
+    });
+
+    function vote() {
         type = $('.nav').find('a.show').attr('href').substr(1);
         let catalog;
         if (type === 'characters')
             catalog = charactersCatalog;
         else
             catalog = comicsCatalog;
-        if ($userData[0].value !== '') {
-            if (userList.length === 0) {
-                let user = new User($userData[0].value, $userData[2].value, $userData[1].value, '', '');
-                userList.push(user);
-                localStorage.setItem('userList', JSON.stringify(userList));
-                localStorage.setItem('currentUser', $userData[0].value);
-                isLogin();
-            } else
-                return false;
-        }
-
-        if (didYouVoted(userName)) {
-            let filmClickId = parseInt($('#register').find('img').attr('id'));
-            let rate;
-            catalog.find(o => {
-                if (o.id === filmClickId) {
-                    if (!ratingData.find(e => {
-                        if (e.id === filmClickId) {
-                            e.rate++;
-                            return true;
-                        }
-                    })) {
-                        if (type === 'characters')
-                            rate = new RatingData(type, o.name, o.id, 1);
-                        else
-                            rate = new RatingData(type, o.title, o.id, 1);
-                        ratingData.push(rate);
+        let filmClickId = parseInt($('#register').find('img').attr('id').split(',')[1]);
+        let rate;
+        catalog.find(o => {
+            if (o.id === filmClickId) {
+                if (!ratingData.find(e => {
+                    if (e.id === filmClickId) {
+                        e.rate++;
+                        return true;
                     }
-                }
-            });
-            userList.find(o => {
-                if (o.name === userName) {
+                })) {
                     if (type === 'characters')
-                        o.selectedCharacterId = filmClickId;
+                        rate = new RatingData(type, o.name, o.id, 1);
                     else
-                        o.selectedComicId = filmClickId;
+                        rate = new RatingData(type, o.title, o.id, 1);
+                    ratingData.push(rate);
                 }
-            });
-            localStorage.setItem('ratingData', JSON.stringify(ratingData));
-            localStorage.setItem('userList', JSON.stringify(userList));
-            alert('Thanks for participate. You will be redirect in a few.');
-            setTimeout(function () {
-                window.location.href = "../pages/results.html";
-            }, 3000);
-        } else {
-            if (type === 'characters')
-                alert('You cannot vote for two characters. Have you already vote the best comic?');
-            else
-                alert('You cannot vote for two comics. Have you already vote the best character?');
-        }
-    });
+            }
+        });
+        userList.find(o => {
+            if (o.name === userName) {
+                if (type === 'characters')
+                    o.selectedCharacterId = filmClickId;
+                else
+                    o.selectedComicId = filmClickId;
+            }
+        });
+        localStorage.setItem('ratingData', JSON.stringify(ratingData));
+        localStorage.setItem('userList', JSON.stringify(userList));
+        alert('Thanks for participate. You will be redirect in a few.');
+        setTimeout(function () {
+            window.location.href = "../pages/results.html";
+        }, 3000);
+    }
 
     /**
      * 
@@ -552,11 +555,11 @@
         userList.find(o => {
             if (o.name === userName) {
                 if (type === 'characters') {
-                    if (o.selectedCharacterId === "" || o.selectedCharacterId === null)
+                    if (o.selectedCharacterId !== "")
                         voted = true;
 
                 } else if (type === 'comics')
-                    if (o.selectedComicId === "" || o.selectedComicId === null)
+                    if (o.selectedComicId !== "")
                         voted = true;
             }
         });
