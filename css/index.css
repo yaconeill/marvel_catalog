@@ -166,6 +166,7 @@ body {
       color: white !important; }
 
 #return-to-top {
+  z-index: 1;
   position: fixed;
   bottom: 60px;
   right: 20px;

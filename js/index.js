@@ -468,7 +468,7 @@
          * In case the user has already vote for any, it will show a text and block the button to vote
         */
         let voted = didYouVoted(userName);
-        if (userName !== '')
+        if (userName !== '' && userName !== null)
             if (!voted) {
                 youVoted.hide().next().show();
                 btnVote.addClass('disabled');
@@ -491,7 +491,7 @@
         else
             catalog = comicsCatalog;
         if ($userData[0].value !== '') {
-            if (userList.length === 0 || userList.find(o => o.email !== $userData[1].value)) {
+            if (userList.length === 0) {
                 let user = new User($userData[0].value, $userData[2].value, $userData[1].value, '', '');
                 userList.push(user);
                 localStorage.setItem('userList', JSON.stringify(userList));
