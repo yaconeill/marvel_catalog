@@ -541,7 +541,7 @@ $(document).ready(function () {
         localStorage.setItem('userList', JSON.stringify(userList));
         alert('Thanks for participate. You will be redirect in a few.');
         setTimeout(function () {
-            window.location.href = "../pages/results.html";
+            window.location.href = "pages/results.html";
         }, 3000);
     }
 
