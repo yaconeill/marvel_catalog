@@ -542,7 +542,7 @@ $(document).ready(function () {
         alert('Thanks for participate. You will be redirect in a few.');
         setTimeout(function () {
             window.location.href = "pages/results.html";
-        }, 3000);
+        }, 2000);
     }
 
     /**
